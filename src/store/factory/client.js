@@ -160,7 +160,7 @@ function createNearClient (network, mnemonic, derivationPath) {
   return nearClient
 }
 
-function createNearClient (network, mnemonic, derivationPath) {
+function createVerusClient (network, mnemonic, derivationPath) {
   const verusNetwork = ChainNetworks.verus[network]
   const verusClient = new Client()
   verusClient.addProvider(new VerusRpcProvider(verusNetwork))
@@ -171,8 +171,8 @@ function createNearClient (network, mnemonic, derivationPath) {
       derivationPath
     }
   ))
- // verusClient.addProvider(new VerusSwapProvider())
- // verusClient.addProvider(new NearSwapFindProvider(nearNetwork?.helperUrl))
+  // verusClient.addProvider(new VerusSwapProvider())
+  // verusClient.addProvider(new NearSwapFindProvider(nearNetwork?.helperUrl))
 
   return verusClient
 }
