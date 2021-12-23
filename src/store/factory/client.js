@@ -33,6 +33,9 @@ import { TerraWalletProvider } from '@liquality/terra-wallet-provider'
 import { TerraRpcProvider } from '@liquality/terra-rpc-provider'
 import { TerraSwapFindProvider } from '@liquality/terra-swap-find-provider'
 
+import { VerusJsWalletProvider } from '@liquality/verus-js-wallet-provider'
+import { VerusRpcProvider } from '@liquality/verus-rpc-provider'
+
 import {
   BitcoinLedgerBridgeProvider,
   EthereumLedgerBridgeProvider,
@@ -157,6 +160,23 @@ function createNearClient (network, mnemonic, derivationPath) {
   return nearClient
 }
 
+function createNearClient (network, mnemonic, derivationPath) {
+  const verusNetwork = ChainNetworks.verus[network]
+  const verusClient = new Client()
+  verusClient.addProvider(new VerusRpcProvider(verusNetwork))
+  verusClient.addProvider(new VerusJsWalletProvider(
+    {
+      network: verusNetwork,
+      mnemonic,
+      derivationPath
+    }
+  ))
+ // verusClient.addProvider(new VerusSwapProvider())
+ // verusClient.addProvider(new NearSwapFindProvider(nearNetwork?.helperUrl))
+
+  return verusClient
+}
+
 function createSolanaClient (network, mnemonic, derivationPath) {
   const solanaNetwork = ChainNetworks.solana[network]
   const solanaClient = new Client()
@@ -266,6 +286,7 @@ export const createClient = (asset, network, mnemonic, accountType, derivationPa
   if (assetData.chain === 'near') return createNearClient(network, mnemonic, derivationPath)
   if (assetData?.chain === 'solana') return createSolanaClient(network, mnemonic, derivationPath)
   if (assetData.chain === 'terra') return createTerraClient(network, mnemonic, derivationPath, asset)
+  if (assetData.chain === 'verus') return createVerusClient(network, mnemonic, derivationPath)
 
   return createEthClient(asset, network, mnemonic, accountType, derivationPath)
 }

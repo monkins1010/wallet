@@ -1,7 +1,7 @@
 /* global chrome */
 import { inject } from './broker/utils'
 import Script from './broker/Script'
-import { providerManager, ethereumProvider, overrideEthereum, bitcoinProvider, nearProvider, paymentUriHandler, solanaProvider, terraProvider } from './inject'
+import { providerManager, ethereumProvider, overrideEthereum, bitcoinProvider, nearProvider, paymentUriHandler, solanaProvider, terraProvider, verusProvider } from './inject'
 import buildConfig from './build.config'
 import { ChainNetworks } from '@/utils/networks'
 import { chains, isEthereumChain } from '@liquality/cryptoassets'
@@ -15,6 +15,7 @@ inject(bitcoinProvider())
 inject(nearProvider())
 inject(solanaProvider())
 inject(terraProvider())
+inject(verusProvider())
 
 function injectEthereum (state, chain) {
   const network = ChainNetworks[chain][state.activeNetwork]

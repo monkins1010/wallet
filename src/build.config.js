@@ -22,7 +22,8 @@ export default {
       'ARBETH',
       'FISH',
       'LUNA',
-      'UST'
+      'UST',
+      'VRSC'
     ],
     testnet: [
       'BTC',
@@ -37,7 +38,8 @@ export default {
       'ARBETH',
       'SOL',
       'LUNA',
-      'UST'
+      'UST',
+      'VRSC'
     ]
   },
   infuraApiKey: 'da99ebc8c0964bb8bb757b6f8cc40f1f',
@@ -129,6 +131,6 @@ export default {
   },
   discordUrl: 'https://discord.gg/Xsqw7PW8wk',
   networks: ['mainnet', 'testnet'],
-  chains: ['bitcoin', 'ethereum', 'rsk', 'bsc', 'near', 'polygon', 'arbitrum', 'terra'],
+  chains: ['bitcoin', 'ethereum', 'rsk', 'bsc', 'near', 'polygon', 'arbitrum', 'terra', 'verus'],
   supportedBridgeAssets: ['MATIC']
 }
