@@ -134,6 +134,9 @@
     "@ledgerhq/hw-app-btc": "9.1.2",
     "@solana/web3.js": "1.50.1",
     "@eth-optimism/core-utils": "0.8.4",
-    "bufio": "1.0.7"
+    "bufio": "1.0.7",
+    "liquality": "portal:/C:/dev/wallet-core",
+    "@liquality/cryptoassets": "portal:/C:/dev/cryptoassets"
+    
   }
 }
