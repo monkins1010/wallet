@@ -21,7 +21,9 @@ export const chainIdsMapping = {
   },
   bip122: {
     ['000000000019d6689c085ae165831e93']: `${ChainName.Bitcoin}:${Network.Mainnet}`,
-    ['000000000933ea01ad0ee984209779ba']: `${ChainName.Bitcoin}:${Network.Testnet}`
+    ['000000000933ea01ad0ee984209779ba']: `${ChainName.Bitcoin}:${Network.Testnet}`,
+    ['i5w5MuNik5NtLcYmNzcvaoixooEebB6MGV']: `${ChainName.Verus}:${Network.Mainnet}`,
+    ['iJhCezBExJHvtyH3fGhNnt2NhU4Ztkf2yq']: `${ChainName.Verus}:${Network.Testnet}`
   }
 }
 

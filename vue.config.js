@@ -8,6 +8,13 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 module.exports = {
   lintOnSave: false,
   productionSourceMap: false,
+  transpileDependencies: [
+    '@bitcoinerlab/secp256k1',
+    '@noble/curves',
+    '@teleportdao/bitcoin',
+    'bitcoinjs-lib',
+    'ecpair'
+  ],
 
   css: {
     loaderOptions: {
@@ -18,6 +25,17 @@ module.exports = {
   },
 
   configureWebpack: (config) => {
+    config.module.rules.push({
+      test: /\.js$/,
+      include: [path.resolve('node_modules/@bitcoinerlab'), path.resolve('node_modules/@noble')],
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-proposal-optional-chaining']
+        }
+      }
+    })
     config.entry.pageProvider = path.resolve('./src/pageProvider/index.js')
     config.plugins.push(
       new webpack.NormalModuleReplacementPlugin(

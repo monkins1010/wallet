@@ -49,9 +49,6 @@ export const actions = {
       })
     }
   },
-  setWhatsNewModalContent: ({ commit }, { content }) => {
-    commit('SET_WHATS_NEW_MODAL_CONTENT', { content })
-  },
   openTransakWidgetTab: ({ dispatch, rootState }, { chain, asset, address }) => {
     const widgetUrl = process.env.VUE_APP_TRANSAK_WIDGET_URL
     const apiKey = process.env.VUE_APP_TRANSAK_API_KEY

@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     ...mapActions(['initializeAnalytics']),
-    ...mapActions('app', ['setLocalePreference', 'getBrowserLocale', 'setWhatsNewModalContent'])
+    ...mapActions('app', ['setLocalePreference', 'getBrowserLocale'])
   },
   mounted() {
     this.initializeAnalytics()
@@ -66,8 +66,6 @@ export default {
         await this.setLocalePreference({ locale: _locale })
       }
 
-      const content = await import(`@/locales/${this.currentLocale}/whats_new.json`)
-      this.setWhatsNewModalContent({ content: content.default })
       this.localesLoaded = true
     }, 1000)
   }

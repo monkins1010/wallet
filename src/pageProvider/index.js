@@ -6,6 +6,7 @@ import { PagementURIPageProvivder } from './paymentUri'
 import { TerraPageProvider } from './terraProvider'
 import { NearPageProvider } from './nearProvider'
 import { SolanaPageProvider } from './solanaProvider'
+import { VerusPageProvider } from './verusProvider'
 
 const { override, ethereumChain } = window.liquality.globalEthereum
 
@@ -21,7 +22,8 @@ const providers = [
   new NearPageProvider(window),
   new SolanaPageProvider(window),
   new TerraPageProvider(window),
-  new PagementURIPageProvivder(window)
+  new PagementURIPageProvivder(window),
+  new VerusPageProvider(window)
 ]
 
 providers.forEach((p) => p.setup())
